@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A/B Test: Medical Appointment Website</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .screenshot {
+    width: 45%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Medical Appointment Website A/B Test</h1>
+  </header>
+  
+  <section class="description">
+    <h2>Project Overview</h2>
+    <p>For this project, we will be looking at a website for medical appointments. Specifically, we will use A/B testing to compare two different interfaces and how they affect the user’s ability to perform the given task (Schedule an appointment with Adam Ng, MD at Morristown Medical Center on April 23, 2024). The goal is to research how changes in the interface through layout, color, etc. can make an interface more user-friendly in terms of performing the intended function. A/B testing will allow us to statistically determine whether one interface design is better than another in terms of usability, based on metrics of speed, number of clicks, and number of failed attempts. By collecting data on user's experience with both versions, we can determine if there are statistically significant differences after making changes to the interface.</p>
+  </section>
+  
+  <section class="changes">
+    <h2>Description of Changes</h2>
+    <p>For version A, the interface remains as the original design without any modifications.</p>
+    <p>For version B, we incorporated padding and text coloring to visually separate the appointment information (provider and location) from the appointment header. Additionally, we changed the faded blue color of the buttons to a brighter shade to better indicate clickability. The faded color might misleadingly imply that the option is not available.</p>
+    <div class="screenshots">
+      <h3>Screenshots</h3>
+      <div class="screenshot">
+        <h4>Version A</h4>
+        <img src="./public/versionA.png" alt="Version A Screenshot">
+      </div>
+      <div class="screenshot">
+        <h4>Version B</h4>
+        <img src="./public/versionB.png" alt="Version B Screenshot">
+      </div>
+    </div>
+  </section>
+
+  <section class="metrics">
+    <h2>Chosen Metrics</h2>
+    <p>Metrics:</p>
+    <ul>
+      <li>Misclick rate: how frequently users clicked the wrong button</li>
+      <li>Time on page: the time it takes to complete the task</li>
+      <li>Mouse move distance: the total distance (in pixels) of the user’s mouse movements</li>
+    </ul>
+  </section>
+
+  <section class="hypotheses">
+    <h2>Hypotheses</h2>
+
+    <h3>Misclick Rate</h3>
+    <p>Null hypothesis: There is no significant difference in misclick rates between version A and version B.</p>
+    <p>I predict that we will reject the null hypothesis because the easier viewability of appointment information and clickability of the buttons in version B will result in fewer misclick errors from the user.</p>
+    <p>Alternative hypothesis: There will be fewer misclicks with version B than version A. This is because of the easier viewability of appointment information and the bolder color contrast of the buttons on version B.</p>
+
+    <h3>Time on Page</h3>
+    <p>Null hypothesis: There is no significant difference in the time it takes to complete the task between version A and version B.</p>
+    <p>I predict that we will reject the null hypothesis because the easier viewability of appointment information and perceived clickability of the buttons in version B will result in a quicker task completion time.</p>
+    <p>Alternative hypothesis: The time spent on the page to complete the task with version B will be less than version A. This is because of the easier viewability of appointment information and the bolder color contrast of the buttons on version B.</p>
+
+    <h3>Mouse Move Distance</h3>
+    <p>Null hypothesis: There is no significant difference in mouse move distance between version A and version B.</p>
+    <p>I predict that we will reject the null hypothesis because the easier viewability of appointment information and perceived clickability of the buttons in version B will result in less mouse move distance from the user.</p>
+    <p>Alternative hypothesis: There will be less mouse move distance by the user with version B than version A. This is because of the easier viewability of appointment information and the bolder color contrast of the buttons on version B.</p>
+  </section>
+
+  
+  </section>
+    <section class="Statistics">
+        <h2>Statistical Analysis</h2>
+
+<!-- Misclick Rate (Chi-squared Test) -->
+<h3>Misclick Rate</h3>
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Degrees of Freedom</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Chi-squared</td>
+    <td>2.999089853</td>
+  </tr>
+  <tr>
+    <td>p-value</td>
+    <td>0.08331130643</td>
+  </tr>
+</table>
+<p>
+    <strong>Statistical Analysis Method:</strong> Chi-squared test.<br>
+    <strong>Reasoning:</strong> The misclick rate is a categorical variable (true or false), and I want to compare the frequencies of misclicks between version A and version B. The chi-squared test is suitable for comparing categorical variables<br>
+
+    <br>The difference in misclick rate between versions A and B is not statistically significant, as it has a p-value of 0.08331130643. Though this value approaches statistical significance, it is not lower than the common threshold of 0.05. The p-value represents the probability that the observed difference occurred by random chance, so a lower p-value implies higher statistical significance. The degrees of freedom (df) for a chi-square test is based on the number of categories being compared, and in this case is just 1. A chi-square value of 2.99908985333264 suggests that there might be a trend or indication of a difference in misclick rates between versions A and B. However, since the p-value is greater than the threshold of 0.05, we fail to reject the null hypothesis.</br>
+    <strong>Conclusion:</strong> Since we failed to reject the null hypothesis, we cannot claim that version B is better than version A in terms of misclick rate. However, the average misclick rates (see summary statistics below) and the chi-square value suggest that there might be some differences from using version B.Further research with more participants will be needed to determine any significant differences.
+  </p>
+<!-- Time on Screen (One-tailed T-test) -->
+<h3>Time on Page</h3>
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Degrees of Freedom</td>
+    <td>37.04483713</td>
+  </tr>
+  <tr>
+    <td>T-score</td>
+    <td>-3.125470678</td>
+  </tr>
+  <tr>
+    <td>p-value (B &lt; A)</td>
+    <td>0.0017218746</td>
+  </tr>
+</table>
+<p>
+    <strong>Statistical Analysis Method:</strong> One-tailed t-test.<br>
+    <strong>Reasoning:</strong> Time on page is a continuous variable, and I want to compare the means of time spent on the page between version A and version B. A one-tailed t-test is appropriate because my hypothesis specifies the direction of the effect (I expect version B to have a shorter time on page). <br> 
+    <strong>Note:</strong> The script used to calculate statistics calculates for p-value (A &lt; B). Since my hypothesis predicts that version B will have lower values than version A, I need the p-value in the opposite direction. Thus, the p-score in the table is p-value (B &lt; A) = 1 - p-value (A &lt; B) and the sign of the t-score is flipped to represent the change in direction.<br>
+
+    <br>The difference between versions A and B with respect to time on page is statistically significant- the p-value of 0.0017218746 is lower than the common p threshold of 0.05. The p-value represents the probability that the observed difference occurred by random chance, so a lower p-value implies higher statistical significance. The degrees of freedom (df) for a two-tail t-test is based on the number of participants and in this case, is 37.04483713. The negative t-score (-3.125470678) suggests that the average time on page for version B is lower than that of version A. We are confident that the alternative hypothesis is true: version B will likely result in a lower time spent on the page than version A.<br>
+    <strong>Conclusion:</strong> It is likely that version B is better than version A in terms of time spent by users on the page! The t-score suggests that users spend less time to complete the task on version B than version A. This might be contributed to users having an easier understanding of what to click or being able to navigate the information on the screen better on version B.
+  </p>
+  
+
+<!-- Mouse Move Distance (One-tailed T-test) -->
+<h3>Mouse Move Distance</h3>
+<table>
+  <tr>
+    <th>Variable</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Degrees of Freedom</td>
+    <td>35.1761264</td>
+  </tr>
+  <tr>
+    <td>T-score</td>
+    <td>-4.152043526</td>
+  </tr>
+  <tr>
+    <td>p-value (B &lt; A)</td>
+    <td>0.0000996245</td>
+  </tr>
+</table>
+<p>
+    <strong>Statistical Analysis Method:</strong> One-tailed t-test.<br>
+    <strong>Reasoning:</strong> Time on page is a continuous variable, and I want to compare the means of time spent on the page between version A and version B. A one-tailed t-test is appropriate because my hypothesis specifies the direction of the effect (I expect version B to have a shorter time on page).<br> 
+    <strong>Note:</strong> The script used to calculate statistics calculates for p-value (A &lt; B). Since my hypothesis predicts that version B will have lower values than version A, I need the p-value in the opposite direction. Thus, the p-value in the table is p-value (B &lt; A) = 1 - p-value (A &lt; B) and the sign of the t-score is flipped to represent the change in direction.<br>
+    <br>The difference between versions A and B with respect to mouse move distance is statistically significant- the p-value of 0.0000996 is lower than the common p threshold of 0.05. The p-value represents the probability that the observed difference occurred by random chance, so a lower p-value implies higher statistical significance. The degrees of freedom (df) for a two-tail t-test is based on the number of participants and in this case, is 35.1761264. The negative t-score (-4.152043526) suggests that the average move distance for version B is lower than that of version A. We are confident that the alternative hypothesis is true: version B will likely result in lower mouse move distance than version A.<br>
+    <strong>Conclusion:</strong> It is likely that version B is better than version A in terms of mouse move distance! The t-score suggests that users have less total mouse movement on version B than version A. This might be contributed to users having an easier understanding of where to navigate or click because of the reformatted information and altered color of buttons on version B.
+  </p>
+
+<h2>Summary Statistics</h2>
+<p>
+<strong>Note:</strong> Misclick rate is omitted from average and variance calculations due to its nature of being a boolean (TRUE or FALSE).
+</p>  
+
+  <h3>Time on Page</h3>
+<table>
+  <tr>
+    <th>Website Version</th>
+    <th>Average</th>
+    <th>Variance</th>
+  </tr>
+  <tr>
+    <td>Version A</td>
+    <td>12860.44118</td>
+    <td>140609949</td>
+  </tr>
+  <tr>
+    <td>Version B</td>
+    <td>6308.434783</td>
+    <td>5956936.439</td>
+  </tr>
+</table>
+<p>On average, users spent less time on the page in version B than version A. There was much higher variance for version A, meaning there was greater variation among users' speed in completing the task while using version A.</p>
+
+<h3>Mouse Move Distance</h3>
+<table>
+  <tr>
+    <th>Website Version</th>
+    <th>Average</th>
+    <th>Variance</th>
+  </tr>
+  <tr>
+    <td>Version A</td>
+    <td>4006.559655</td>
+    <td>6401849.35</td>
+  </tr>
+  <tr>
+    <td>Version B</td>
+    <td>2175.134532</td>
+    <td>144227.3209</td>
+  </tr>
+</table>
+<p>On average, users had a lower total distance of mouse movement while using version B than version A. There is also greater variance for version A, so there was greater deviation from the average movement distance in this version than version B. <br>
+</body>
+<h2>Analysis</h2>
+<p>With version A, the greater variance might imply that there was more room for confusion among different users. The readability of text and faded color of buttons may have affected users disproportionally, particularly those with visual impairments. Version B displayed lower time spent on page and less mouse movement, which could imply that users had a better understanding of where to find information and where they should click in order to complete the task. Two of the three metrics in our A/B testing suggest that version B is better than version A. Since version had a total of 34 users and version B only had 23, further research should be conducted in order to confirm the statistical significance. Further research must also account for external factors such as users' familiarity with the interface or their understanding of the task. </p>
+</html>
